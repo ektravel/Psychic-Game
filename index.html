@@ -6,23 +6,39 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <!-- <script type="text/javascript" src="assets/javascript/game.js"></script> -->
         <meta charset="UTF-8">
-        <title>Word Guess Game</title>
+        <title> Word Guess Game</title>
     </head>
     <body>
+        <div id = "mainSection">
+            <div id = "mainSectionHeader">
+                <h1>Word Guess Game</h1>
+                <h2>The Silence of The Lambs</h2>
+            </div>
+            <div id = "gameText">
+                <h2>Press Any Key to Get Started!</h2>
+
+                <!-- Display a new word like this when the game starts: _ _ _ _ _ _ _. -->
+                <input id = "letter" type = "text">
+
+                <!-- As the user guesses the correct letters, reveal them: m a d o _ _ a. -->
+                <p id = "lettersGuessed"></p>
+
+                <!-- Letters Already Guessed: (displayed like L Z Y H). -->
+                <p id = "lettersUsed"></p>
+
+                <!-- Number of guesses remaining -->
+                <p id = "triesLeft"></p>
+                
+                <!-- Wins: (# of times user guessed the word correctly) -->
+                <p id = "wins"></p>
+            </div>
+
+        </div>
+        
         <!-- Use key events to listen for the letters that your players will type. -->
-        <!-- Display on the page: 
-            Press any key to get started! 
-            Wins: (# of times user guessed the word correctly).
 
-            If the word is madonna, display it like this when the game starts: _ _ _ _ _ _ _.
 
-            As the user guesses the correct letters, reveal them: m a d o _ _ a.
-
-            Number of Guesses Remaining: (# of guesses remaining for the user).
-
-            Letters Already Guessed: (Letters the user has guessed, displayed like L Z Y H).
-
-        After the user wins/loses the game should automatically choose another word and make the user play it.
+        <!-- After the user wins/loses the game should automatically choose another word and make the user play it.
 
         Word Guess Game Bonuses:
 
@@ -32,9 +48,9 @@
         Save your whole game and its properties in an object.
         Save any of your game's functions as methods, and call them underneath your object declaration using event listeners.
         Don't forget to place your global variables and functions above your object.
-        Remember: global variables, then objects, then calls.
+        Remember: global variables, then objects, then calls. -->
         
-        -->
+
         
 
 
