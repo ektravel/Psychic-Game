@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/style.css">
-        <!-- <script type="text/javascript" src="assets/javascript/game.js"></script> -->
         <meta charset="UTF-8">
         <title> Word Guess Game</title>
     </head>
-    <!-- When the page starts, generate a "blank" word picked randomly. Do it by running "startGame" function. -->
+    <!-- When the page loads, generate a "blank" word picked randomly. Do it by running "startGame" function. -->
     <body onload="startGame()">
             <div id = "mainSectionHeader">
                 <h1>Word Guess Game</h1>
@@ -17,25 +17,21 @@
             <div id = "gameText">
                 <h2>Press Any Key to Get Started!</h2>
 
-                <!-- As the user guesses the correct letters, reveal them: m a d o _ _ a. -->
+                <!-- As the user guesses the correct letters, reveal them. -->
                 <p id = "lettersGuessed"></p>
+                <br>
 
-                <!-- Letters Already Guessed: (displayed like L Z Y H). -->
+                <!-- Letters Already Guessed. -->
                 <p id = "lettersUsed"></p>
+                <br>
 
                 <!-- Number of guesses remaining -->
                 <p id = "triesLeft"></p>
-                
+                <br>
+
                 <!-- Wins: (# of times user guessed the word correctly) -->
                 <p id = "wins"></p>
             </div>
-
-<!-- 
-        Word Guess Game Bonuses:
-
-        Play a sound or song when the user guesses their word correctly, like in our demo.
-        Write some stylish CSS rules to make a design that fits your game's theme. -->
-
         <script type="text/javascript" src="assets/javascript/game.js"></script>
     </body>
 </html>
