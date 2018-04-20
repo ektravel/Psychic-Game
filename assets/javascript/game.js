@@ -19,7 +19,10 @@ var wordsToGuessArr = [
 //an array of "blanks" for a randomly picked word
 var wordAnswerArr = [];
 
-//define starting value for remaining guesses
+//an array of letters already used
+var lettersUsed = [];
+
+//starting value for remaining guesses
 var remainingGuesses = 12;
 
 //pick a random word 
@@ -43,8 +46,12 @@ function getNewWord(){
 function startGame(){
     wordToGuess = getNewWord();
     wordAnswerArr = [];
+
     remainingGuesses = 12;
     updateGuesses();
+
+    lettersUsed =  [];
+    document.getElementById("lettersUsed").innerHTML = "Letters Used: " + lettersUsed;
 
     for (var i = 0; i < wordToGuess.length; i++) {
         wordAnswerArr[i] = "_";
@@ -55,17 +62,17 @@ function startGame(){
     alert("Guess a letter, Precious, won't you?");
 };
 
-// This function runs whenever the user presses a key.
+// run this function when the user presses a key
 document.onkeyup = function(event) {
-    // Determines which key was pressed.
+    // determine which key was pressed
     var userGuess = event.key;
     remainingGuesses--;
-    // if the user enters nothing or more than one letter, show this message
+    // if the user enters a number, show this message
     if (isNaN(userGuess) === false) {
         alert("It will pick a letter, won't it? It will get the hose!");
     } 
     else {
-        //user picked a letter, apply the letter to the word, update the score with the guess
+        //user picked a letter, apply it to the word, update the score with the guess
         for (var j = 0; j < wordToGuess.length; j++) {
             
             if (wordToGuess[j] === userGuess) {
@@ -79,16 +86,19 @@ document.onkeyup = function(event) {
                 //lower remaining tries by 1
                 //show remaining guesses
                 updateGuesses();
-            };
-            
+            };  
         };
-
     };
-
+    lettersUsed.push(userGuess); 
+    document.getElementById("lettersUsed").innerHTML = "Letters Used: " + lettersUsed;
     if (remainingLetters <= 0) {
         wins++;
         alert("Well done, no hose for you!")
         document.getElementById("wins").innerHTML = "Wins: " + wins;
         startGame();
-    };
+    }
+    else if (remainingGuesses <= 0) {
+        alert("Sorry, you lost the game. The word was " + wordToGuess);
+        startGame();
+    }
 };
