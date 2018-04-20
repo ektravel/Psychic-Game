@@ -23,13 +23,29 @@ var wordAnswerArr = [];
 var remainingGuesses = 12;
 
 //pick a random word 
-var wordToGuess = wordsToGuessArr[Math.floor(Math.random() * wordsToGuessArr.length)];
+var wordToGuess;
 
 //letters remaining to be guessed
-var remainingLetters = [];
+var remainingLetters;
+
+//number of wins
+var wins = 0;
+
+function updateGuesses() {
+    document.getElementById("triesLeft").innerHTML = "Remaining guesses: " + remainingGuesses;
+};
+
+function getNewWord(){
+    return wordsToGuessArr[Math.floor(Math.random() * wordsToGuessArr.length)];
+};
 
 //create an array of "blanks" for each word and alert the user to pick a letter
-function fillBlanks(){
+function startGame(){
+    wordToGuess = getNewWord();
+    wordAnswerArr = [];
+    remainingGuesses = 12;
+    updateGuesses();
+
     for (var i = 0; i < wordToGuess.length; i++) {
         wordAnswerArr[i] = "_";
     };
@@ -44,8 +60,8 @@ document.onkeyup = function(event) {
     // Determines which key was pressed.
     var userGuess = event.key;
     remainingGuesses--;
-// if the user enters nothing or more than one letter, show this message
-   if (isNaN(userGuess) === false) {
+    // if the user enters nothing or more than one letter, show this message
+    if (isNaN(userGuess) === false) {
         alert("It will pick a letter, won't it? It will get the hose!");
     } 
     else {
@@ -62,10 +78,17 @@ document.onkeyup = function(event) {
             else {
                 //lower remaining tries by 1
                 //show remaining guesses
-                document.getElementById("triesLeft").innerHTML = "Remaining guesses: " + remainingGuesses;
+                updateGuesses();
             };
             
         };
 
+    };
+
+    if (remainingLetters <= 0) {
+        wins++;
+        alert("Well done, no hose for you!")
+        document.getElementById("wins").innerHTML = "Wins: " + wins;
+        startGame();
     };
 };
