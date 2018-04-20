@@ -1,3 +1,16 @@
-/* #mainSection {
-    background-image: 
-} */
+body {
+	background-color: #435AED;
+}
+
+#mainSection {
+	color: #FEFEFE;
+	text-align: center;
+}
+
+#mainSectionHeader{
+    
+}
+#lettersGuessed {
+	font-size: x-large;
+	letter-spacing: 3px;
+}
